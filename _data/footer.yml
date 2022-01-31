@@ -1,0 +1,37 @@
+left_links:
+  - name: Blog
+    link: /blog/
+  # - name: Projects
+  #   link: /projects/
+  # - name: Art
+  #   link: /art/
+  - name: About
+    link: /about/    
+  - name: Contact
+    link: /contact/
+
+right_links:
+  - name: null
+    link: 'https://www.facebook.com/yangliudongnan'
+    new_window: true
+    social_icon: Facebook
+  - name: null
+    link: 'https://twitter.com/TimiuTarou'
+    social_icon: Twitter
+    new_window: true
+  - name: null
+    link: 'https://www.youtube.com/channel/UCg9nTmveHFJBsORH-fEfBlw'
+    social_icon: YouTube
+    new_window: true
+  - name: null
+    link: 'https://www.instagram.com/yldnxxzzzzzz/'
+    social_icon: Instagram
+    new_window: true
+  - name: null
+    link: 'https://www.linkedin.com/in/liudongnan-yang-683a3b163/'
+    social_icon: LinkedIn
+    new_window: true
+
+  - name: null
+    link: /feed.xml
+    social_icon: RSS
