@@ -1,9 +1,7 @@
 - name: Blog
   link: /blog/
-# - name: projects
-#   link: /projects/
-# - name: Art
-#   link: /art/
+- name: Projects
+  link: /projects/
 - name: About
   link: /about/
 - name: Contact

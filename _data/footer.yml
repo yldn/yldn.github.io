@@ -1,10 +1,8 @@
 left_links:
   - name: Blog
     link: /blog/
-  # - name: Projects
-  #   link: /projects/
-  # - name: Art
-  #   link: /art/
+  - name: Projects
+    link: /projects/
   - name: About
     link: /about/    
   - name: Contact
@@ -16,7 +14,7 @@ right_links:
     new_window: true
     social_icon: Facebook
   - name: null
-    link: 'https://twitter.com/TimiuTarou'
+    link: 'https://twitter.com'
     social_icon: Twitter
     new_window: true
   - name: null
