@@ -241,7 +241,7 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, tex
 
 .nav-open nav { border-bottom: 1px dotted rgba(255, 255, 255, 0.2); padding: 10px 0; }
 
-.nav-open nav a { display: block; padding: 30px 0; }
+.nav-open nav a { display: block; }
 
 @media (min-width: 620px) { .nav-open nav { border: 0; padding: 0 20px; } .nav-open nav a { display: inline; } }
 
