@@ -1,6 +1,7 @@
 title: Timiu's website
-url: ''
-baseurl: ''
+domain: yldn.github.io
+url: https://yldn.github.io
+baseurl: /yldn.github.io/
 google_analytics_key: null
 google_maps_javascript_api_key: AIzaSyBYY5sb2_cmip-_t122_IH0mxh7l3IERMg
 disqus_shortname: null
@@ -45,7 +46,7 @@ defaults:
         image_path:
           width: 440
           height: 440
-          uploads_dir: /images/staff_members
+          uploads_dir: /assets/images/staff_members
   - scope:
       path: ''
     values:
@@ -59,11 +60,11 @@ defaults:
           width: 2000
           height: 1322
           resize_style: cover
-          uploads_dir: /images/post_uploads
+          uploads_dir: /assets/images/post_uploads
         content:
           width: 1500
           height: 2000
-          uploads_dir: /images/post_uploads
+          uploads_dir: /assets/images/post_uploads
   - scope:
       path: contact-success.html
     values:
