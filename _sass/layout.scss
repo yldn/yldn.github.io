@@ -22,11 +22,6 @@ section {
 	padding: 0;
 }
 
-section.hero {
-	margin-top: 0 !important;
-	padding-top: 0 !important;
-}
-
 .pad {
 	padding: 60px 0;
 }
@@ -39,15 +34,9 @@ header {
 	z-index: 9999;
 	line-height: 0;
 	top: 0;
-	margin: 0;
 
 	.container {
 		line-height: 0;
-	}
-
-	+ * {
-		margin-top: 0 !important;
-		padding-top: 0 !important;
 	}
 
 	&.header-background {

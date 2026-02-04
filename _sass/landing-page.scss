@@ -7,11 +7,9 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	width: 100%;
+	position: relative;
+	margin-top: 0;
+	padding-top: 0;
 
 	&:before {
 		content: "";
