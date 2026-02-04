@@ -1,7 +1,8 @@
 title: Timiu's website
 domain: yldn.github.io
 url: https://yldn.github.io
-baseurl: /yldn.github.io/
+baseurl: ''
+markdown: kramdown
 google_analytics_key: null
 google_maps_javascript_api_key: AIzaSyBYY5sb2_cmip-_t122_IH0mxh7l3IERMg
 disqus_shortname: null
