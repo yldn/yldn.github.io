@@ -1,5 +1,3 @@
-@use "sass:meta";
-
 // Flexbox Mixins
 // http://philipwalton.github.io/solved-by-flexbox/
 // https://github.com/philipwalton/solved-by-flexbox
@@ -260,7 +258,7 @@
 
 	// Box-Flex only supports a flex-grow value so let's grab the
 	// first item in the list and just return that.
-	@if meta.type-of($fg) == 'list' {
+	@if type-of($fg) == 'list' {
 		$fg-boxflex: nth($fg, 1);
 	}
 
