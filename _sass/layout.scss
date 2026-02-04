@@ -34,6 +34,7 @@ header {
 	z-index: 9999;
 	line-height: 0;
 	top: 0;
+	transition: all 0.3s ease;
 
 	.container {
 		line-height: 0;
@@ -43,15 +44,17 @@ header {
 		background-color: rgba(255,255,255,.95);
 		color: #333;
 		box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-		transition: background-color 0.2s ease;
+		transition: all 0.3s ease;
 		text-shadow: none;
 
 		a {
 			color: #333;
+			transition: color 0.3s ease;
 			@media #{$mid-point} {
 				&:hover {
 					border-bottom-color: rgba(80, 80, 80,.3);
 					border-bottom-width: 5px;
+					transition: border 0.2s ease;
 				}
 			}
 		}
