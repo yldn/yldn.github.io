@@ -40,12 +40,14 @@ image: https://source.unsplash.com/WNAO036c6FM/2000x1322?a=.png
 			<h3>Address</h3>
 			<address><a target="_blank" href="https://www.google.com/maps/place/{{ page.map.address | url_encode }}">{{ page.map.address | replace: ", ", ", <br>" }}</a></address>
 
+
 			<h3>Email</h3>
-			<p class="editable"><a href="mailto:support@example.com">Liudongnan.Yang@gmail.com</a></p>
+			<p class="editable"><span class="email-placeholder" aria-label="Email hidden">&#9993; Email hidden. Please use the contact form.</span></p>
 		</div>
 	</div>
 </section>
 
+<!--
 <div class="map" id="map"></div>
 
 <script>
@@ -78,3 +80,4 @@ image: https://source.unsplash.com/WNAO036c6FM/2000x1322?a=.png
 	}
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ site.google_maps_javascript_api_key }}&callback=initMap"></script>
+-->

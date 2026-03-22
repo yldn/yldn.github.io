@@ -24,5 +24,10 @@
 	.contact-details {
 		font-size: .9em;
 		margin-top: 60px;
+
+		.email-placeholder {
+			color: #666;
+			font-style: italic;
+		}
 	}
 }
