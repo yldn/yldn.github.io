@@ -41,6 +41,12 @@ nav {
 			color: rgba(255,255,255,.8);
 		}
 
+		span {
+			// ensure inline text inside nav links (override header a span)
+			display: inline-block;
+			vertical-align: middle;
+		}
+
 
 		&.nav-toggle {
 			display: inline;
@@ -65,4 +71,68 @@ nav {
 		border-bottom: 5px solid #ffa74d;
 	}
 
+}
+
+.lang-switch {
+	display: none;
+}
+
+.lang-switch .btn {
+	padding: 8px 10px;
+	font-size: 0.8em;
+	background: transparent;
+	color: rgba(255,255,255,.9);
+	border: 0;
+	cursor: pointer;
+}
+
+/* Desktop: position the desktop switch at the far right of the header container */
+header .container .lang-switch.desktop {
+	display: none;
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+@media #{$mid-point} {
+	header .container .lang-switch.desktop {
+		display: block;
+	}
+	/* hide the mobile-in-nav switch on desktop */
+	.lang-switch.mobile { display: none; }
+}
+
+/* Mobile: show the mobile switch inside nav when nav is open */
+.nav-open nav .lang-switch.mobile {
+	display: block;
+	position: relative;
+	margin-top: 10px;
+}
+
+/* Match lang toggle color to other nav links when header background changes */
+header .container .lang-switch.desktop .btn,
+.lang-switch.mobile .btn {
+	transition: color 0.2s ease, background 0.2s ease;
+}
+
+header.header-background .container .lang-switch.desktop .btn,
+header.header-background .lang-switch.mobile .btn,
+/* also when body has nav-open (mobile menu open) header gets background */
+body.nav-open header .container .lang-switch.desktop .btn,
+body.nav-open header .lang-switch.mobile .btn {
+	color: #333;
+}
+
+/* Default (dark header) color */
+header .container .lang-switch.desktop .btn,
+header .lang-switch.mobile .btn {
+	color: rgba(255,255,255,.9);
+}
+
+/* More specific override to ensure nav link spans stay inline within header */
+header nav a span,
+header nav a .i18n-name {
+	display: inline-block;
+	vertical-align: middle;
 }

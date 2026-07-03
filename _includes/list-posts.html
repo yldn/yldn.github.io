@@ -1,10 +1,11 @@
 {% for post in include.posts %}
 	<li class="blog-post">
-		<h2><a href="{% include relative-src.html src=post.url %}">{{ post.title }}</a></h2>
+		<h2><a href="{% include relative-src.html src=post.url %}"><span class="lang-en">{{ post.title }}</span><span class="lang-zh">{{ post.title_zh | default: post.title }}</span></a></h2>
 		{% include post-title.html post=post %}
 		<div class="post-content">
-			{{ post.excerpt }}
-			<div class="button"><a href="{% include relative-src.html src=post.url %}">Read More</a></div>
+			<div class="lang-en">{{ post.excerpt }}</div>
+			<div class="lang-zh">{{ post.excerpt_zh | default: post.excerpt }}</div>
+			<div class="button"><a href="{% include relative-src.html src=post.url %}" data-i18n-en="Read More" data-i18n-zh="阅读更多"><span class="i18n-name">Read More</span></a></div>
 		</div>
 	</li>
 {% endfor %}

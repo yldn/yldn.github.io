@@ -12,40 +12,81 @@ image: https://source.unsplash.com/WNAO036c6FM/2000x1322?a=.png
 <section class="hero" style="background-image: url({% include relative-src.html src=page.image %})">
 	<div class="inner-hero text-container">
 		<div class="hero-text-container">
-			<h1 class="editable">Let's Get in touch!</h1>
-			<p class="subtext editable">If you have any questions or searching for collaboration send me an email and I'll get back to you as soon possible.</p>
+			<h1 class="editable" data-i18n-en="Let's Get in touch!" data-i18n-zh="让我们联系吧！">Let's Get in touch!</h1>
+			<p class="subtext editable" data-i18n-en="If you have any questions or searching for collaboration send me an email and I'll get back to you as soon possible." data-i18n-zh="如果您有任何问题或寻求合作，请发邮件给我，我会尽快回复。">If you have any questions or searching for collaboration send me an email and I'll get back to you as soon possible.</p>
 		</div>
 	</div>
 </section>
 
 <section class="pad">
 	<div class="text-container contact-box">
-		<form action="{{ site.baseurl }}/contact-success/" method="post" class="contact-form">
-			<input type="hidden" name="_to" value="support@cloudcannon.com">
-			<input type="text" name="_gotcha" style="display: none;">
+		<div class="form-banner" aria-live="polite" role="status">
+			<span class="lang-en">Local mode: opening your email client. If Outlook does not open automatically, <a class="outlook-link" href="mailto:{{ site.email | default: site.author.email }}">click here to open Outlook</a>.</span>
+			<span class="lang-zh">本地模式：正在尝试打开邮件客户端。如果 Outlook 未自动打开，<a class="outlook-link" href="mailto:{{ site.email | default: site.author.email }}">点击此处手动打开 Outlook</a>。</span>
+		</div>
+		<form name="contact" action="{{ site.baseurl }}/contact-success/" method="post" class="contact-form" data-netlify="true" data-netlify-honeypot="_gotcha">
+			<input type="hidden" name="form-name" value="contact">
+			<input type="hidden" name="_to" value="{{ site.email | default: site.author.email }}">
+			<p style="display:none;"><label>Don’t fill this out: <input name="_gotcha"></label></p>
 
-			<label for="name">Name</label>
-			<input type="text" name="name" id="name" placeholder="Enter your name...">
+			<label for="name" data-i18n-en="Name" data-i18n-zh="姓名">Name</label>
+			<input type="text" name="name" id="name" placeholder="Enter your name..." data-placeholder-en="Enter your name..." data-placeholder-zh="请输入姓名...">
 
-			<label for="email">Email Address</label>
-			<input type="email" name="email" id="email" placeholder="Enter your email..." required>
+			<label for="email" data-i18n-en="Email Address" data-i18n-zh="电子邮件">Email Address</label>
+			<input type="email" name="email" id="email" placeholder="Enter your email..." required data-placeholder-en="Enter your email..." data-placeholder-zh="请输入电子邮件...">
 
-			<label for="message">Message</label>
-			<textarea name="message" id="message" placeholder="Enter your message..."></textarea>
+			<label for="message" data-i18n-en="Message" data-i18n-zh="留言">Message</label>
+			<textarea name="message" id="message" placeholder="Enter your message..." data-placeholder-en="Enter your message..." data-placeholder-zh="请输入留言..."></textarea>
 
-			<input type="submit" value="Send Message">
+			<input type="submit" value="Send Message" data-value-en="Send Message" data-value-zh="发送消息">
+			<p class="form-note"><span class="lang-en">Form submission works after deployment on Netlify; locally it opens your email client.</span><span class="lang-zh">表单提交在部署到 Netlify 后有效；本地预览时会打开邮件客户端。</span></p>
 		</form>
 
 		<div class="contact-details">
-			<h3>Address</h3>
+			<h3 data-i18n-en="Address" data-i18n-zh="地址">Address</h3>
 			<address><a target="_blank" href="https://www.google.com/maps/place/{{ page.map.address | url_encode }}">{{ page.map.address | replace: ", ", ", <br>" }}</a></address>
 
 
-			<h3>Email</h3>
-			<p class="editable"><span class="email-placeholder" aria-label="Email hidden">&#9993; Email hidden. Please use the contact form.</span></p>
+			<h3 data-i18n-en="Email" data-i18n-zh="电子邮件">Email</h3>
+			<p class="editable"><a class="email-link" href="mailto:{{ site.email | default: site.author.email }}">&#9993; {{ site.email | default: site.author.email }}</a></p>
 		</div>
 	</div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var form = document.querySelector('.contact-form');
+    if (!form) return;
+    var hostname = window.location.hostname;
+    var port = window.location.port;
+    var isLocal = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '0.0.0.0' || hostname === '' || port === '4000';
+    if (!isLocal) return;
+
+    var banner = document.querySelector('.form-banner');
+    if (banner) {
+      banner.style.display = 'none';
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var name = encodeURIComponent((form.querySelector('[name=name]') || {}).value || '');
+      var email = encodeURIComponent((form.querySelector('[name=email]') || {}).value || '');
+      var message = encodeURIComponent((form.querySelector('[name=message]') || {}).value || '');
+      var subject = encodeURIComponent('Contact form message');
+      var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+      var mailto = 'mailto:{{ site.email | default: site.author.email }}?subject=' + subject + '&body=' + body;
+      if (banner) {
+        banner.style.display = 'block';
+      }
+      var outlookLink = document.querySelector('.outlook-link');
+      if (outlookLink) {
+        outlookLink.href = mailto;
+        outlookLink.click();
+      }
+      window.location.href = mailto;
+    });
+  });
+</script>
 
 <!--
 <div class="map" id="map"></div>

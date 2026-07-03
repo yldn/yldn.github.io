@@ -4,6 +4,15 @@
 	padding: 0 20px;
 }
 
+/* Language visibility is controlled by body classes set by JS */
+.lang-en, .lang-zh { display: inherit; }
+
+body.lang-zh-active .lang-zh { display: block; }
+body.lang-zh-active .lang-en { display: none; }
+
+body.lang-en-active .lang-en { display: block; }
+body.lang-en-active .lang-zh { display: none; }
+
 .text-container {
 	max-width: 750px;
 }

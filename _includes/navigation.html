@@ -9,6 +9,11 @@
 		{% if link.link == page.url %}
 			{% assign class = class | append: " active" %}
 		{% endif %}
-		<a href="{% include relative-src.html src=link.link %}" class="{{ class }}" {% if link.new_window %}target="_blank"{% endif %}>{{ link.name }}</a>
+		<a href="{% include relative-src.html src=link.link %}" class="{{ class }}" {% if link.new_window %}target="_blank"{% endif %} data-name-en="{{ link.name_en | default: link.name }}" data-name-zh="{{ link.name_zh | default: link.name }}">
+			<span class="i18n-name">{{ link.name }}</span>
+		</a>
 	{% endfor %}
+	<div class="lang-switch mobile">
+		<button class="lang-toggle btn" aria-label="切换语言">EN</button>
+	</div>
 </nav>

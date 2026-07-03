@@ -3,6 +3,7 @@ domain: yldn.github.io
 url: https://yldn.github.io
 baseurl: ''
 markdown: kramdown
+email: Liudongnan.yang@foxmail.com
 google_analytics_key: null
 google_maps_javascript_api_key: AIzaSyBYY5sb2_cmip-_t122_IH0mxh7l3IERMg
 disqus_shortname: null
@@ -38,11 +39,15 @@ collections:
   staff_members:
     _hide_content: true
     _icon: account_circle
+  projects:
+    output: true
+    permalink: /projects/:name/
 paginate: 10
 paginate_path: '/blog/:num/'
 jekyll-archives:
   enabled:
     - categories
+    - tags
 defaults:
   - scope:
       path: ''

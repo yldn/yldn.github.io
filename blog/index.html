@@ -7,15 +7,15 @@ image: https://source.unsplash.com/MqJX_8EaStM/2000x1322?a=.png
 <section class="hero" style="background-image: url({% include relative-src.html src=page.image %})">
 	<div class="inner-hero text-container">
 		<div class="hero-text-container">
-			<h1 class="editable">The Timiu's Blog</h1>
-			<p class="subtext editable">Here documents the stuff that has been done......</p>
+				<h1 class="editable"><span class="lang-en">The Timiu's Blog</span><span class="lang-zh">Timiu 的博客</span></h1>
+				<p class="subtext editable"><span class="lang-en">Here documents the stuff that has been done......</span><span class="lang-zh">记录已完成的内容......</span></p>
 		</div>
 	</div>
 </section>
 
 <section>
 	<div class="text-container">
-		<p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn"><strong>&#9998;</strong> Add Post</a></p>
+		<p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn" data-i18n-en="Add Post" data-i18n-zh="添加文章"><strong>&#9998;</strong> <span class="i18n-name">Add Post</span></a></p>
 		
 		<ul class="blog-posts">
 			{% include list-posts.html posts=paginator.posts %}
@@ -24,13 +24,13 @@ image: https://source.unsplash.com/MqJX_8EaStM/2000x1322?a=.png
 		{% if paginator.total_pages > 1 %}
 			<div class="pagination">
 				{% if paginator.previous_page %}
-					<a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="previous btn">&larr; Newer </a>
+					<a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="previous btn" data-i18n-en="\u2190 Newer" data-i18n-zh="\u2190 更新的">&larr; Newer </a>
 				{% endif %}
 
 				<span class="page_number ">{{ paginator.page }} of {{ paginator.total_pages }}</span>
 
 				{% if paginator.next_page %}
-					<a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="next btn">Older &rarr;</a>
+					<a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="next btn" data-i18n-en="Older \u2192" data-i18n-zh="更早的 \u2192">Older &rarr;</a>
 				{% endif %}
 			</div>
 		{% endif %}

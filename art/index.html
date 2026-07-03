@@ -6,16 +6,16 @@ image: https://source.unsplash.com/MqJX_8EaStM/2000x1322?a=.png
 
 <section class="hero" style="background-image: url({% include relative-src.html src=page.image %})">
 	<div class="inner-hero text-container">
-		<div class="hero-text-container">
-			<h1 class="editable">The Timiu's Blog</h1>
-			<p class="subtext editable">Here documents the stuff that has been done...</p>
+			<div class="hero-text-container">
+				<h1 class="editable"><span class="lang-en">The Timiu's Blog</span><span class="lang-zh">Timiu 的博客</span></h1>
+				<p class="subtext editable"><span class="lang-en">Here documents the stuff that has been done...</span><span class="lang-zh">记录已完成的内容...</span></p>
 		</div>
 	</div>
 </section>
 
 <section>
 	<div class="text-container">
-		<p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn"><strong>&#9998;</strong> Add Post</a></p>
+		<p class="editor-link"><a href="cloudcannon:collections/_posts" class="btn" data-i18n-en="Add Post" data-i18n-zh="添加文章"><strong>&#9998;</strong> <span class="i18n-name">Add Post</span></a></p>
 		<ul class="blog-posts">
 			{% include list-posts.html posts=paginator.posts %}
 		</ul>

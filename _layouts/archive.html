@@ -6,15 +6,32 @@ layout: default
 	<div class="inner-hero text-container">
 		<div class="hero-text-container">
 			<h1><strong>{{ page.title }}</strong></h1>
-			<p class="subtext">Here documents the stuff that has been done...</p>
+			<p class="subtext"><span class="lang-en">Here documents the stuff that has been done...</span><span class="lang-zh">记录已完成的内容...</span></p>
 		</div>
 	</div>
 </section>
 
 <section>
 	<div class="text-container">
-		<p class="change-category">Now under category : <strong>{{ page.title }}</strong>. 
-			You can <a href="{{ site.baseurl }}/blog/">View all posts</a> </p>
+		{% assign project_items = page.posts | where_exp: "item", "item.path contains '_projects/'" %}
+		{% assign post_items = page.posts | where_exp: "item", "item.path contains '_posts/'" %}
+		<p class="change-category"><span class="lang-en">Now under category : <strong>{{ page.title }}</strong>. 
+			{% if project_items.size > 0 and post_items.size == 0 %}
+				You can <a href="{{ site.baseurl }}/projects/" data-i18n-en="View all projects" data-i18n-zh="查看所有项目">View all projects</a>
+			{% elsif project_items.size == 0 and post_items.size > 0 %}
+				You can <a href="{{ site.baseurl }}/blog/" data-i18n-en="View all posts" data-i18n-zh="查看所有文章">View all posts</a>
+			{% else %}
+				You can <a href="{{ site.baseurl }}/blog/" data-i18n-en="View all posts" data-i18n-zh="查看所有文章">View all posts</a> or <a href="{{ site.baseurl }}/projects/" data-i18n-en="View all projects" data-i18n-zh="查看所有项目">View all projects</a>
+			{% endif %}
+		</span><span class="lang-zh">当前分类：<strong>{{ page.title }}</strong>。
+			{% if project_items.size > 0 and post_items.size == 0 %}
+				你可以 <a href="{{ site.baseurl }}/projects/">查看所有项目</a>
+			{% elsif project_items.size == 0 and post_items.size > 0 %}
+				你可以 <a href="{{ site.baseurl }}/blog/">查看所有文章</a>
+			{% else %}
+				你可以 <a href="{{ site.baseurl }}/blog/">查看所有文章</a> 或 <a href="{{ site.baseurl }}/projects/">查看所有项目</a>
+			{% endif %}
+		</span> </p>
 
 		<ul class="blog-posts">
 			{% include list-posts.html posts=page.posts %}

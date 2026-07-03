@@ -8,20 +8,21 @@ image: https://source.unsplash.com/BcoGknSqlDc/2000x1322?a=.png
 	<div class="inner-hero text-container">
 		<div class="hero-text-container">
 			<h1 class="editable">My Story</h1>
-			<p class="subtext editable">Creating this website is helpful for me to archive things that I have attented ,willing to be helpful for other people ^^</p>
+			<h1 class="editable" data-i18n-en="My Story" data-i18n-zh="我的故事">My Story</h1>
+			<p class="subtext editable" data-i18n-en="Creating this website is helpful for me to archive things that I have attented ,willing to be helpful for other people ^^" data-i18n-zh="创建此网站有助于我归档我参加过的事情，并愿意帮助他人 ^^">Creating this website is helpful for me to archive things that I have attented ,willing to be helpful for other people ^^</p>
 		</div>
 	</div>
 </section>
 
 <section class="pad">
 	<div class="container">
-		<p class="editor-link"><a href="cloudcannon:collections/_staff_members" class="btn"><strong>&#9998;</strong> Manage  Members</a></p>
+			<p class="editor-link"><a href="cloudcannon:collections/_staff_members" class="btn" data-i18n-en="Manage Members" data-i18n-zh="管理成员"><strong>&#9998;</strong> <span class="i18n-name">Manage  Members</span></a></p>
 		<ul class="staff">
 			{% for person in site.staff_members %}
 				<li>
 					<div class="square-image" style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
-					<div class="name"><a target="_blank" href={{ person.public_url }}>{{ person.name }}</a></div>
-					<div class="position">{{ person.position }}</div>
+					<div class="name"><a target="_blank" href={{ person.public_url }}><span class="lang-en">{{ person.name }}</span><span class="lang-zh">{{ person.name_zh | default: person.name }}</span></a></div>
+					<div class="position"><span class="lang-en">{{ person.position }}</span><span class="lang-zh">{{ person.position_zh | default: person.position }}</span></div>
 				</li>
 			{% endfor %}
 		</ul>

@@ -1,11 +1,19 @@
 left_links:
   - name: Blog
+    name_en: Blog
+    name_zh: 博客
     link: /blog/
   - name: Projects
+    name_en: Projects
+    name_zh: 项目
     link: /projects/
   - name: About
+    name_en: About
+    name_zh: 关于
     link: /about/    
   - name: Contact
+    name_en: Contact
+    name_zh: 联系
     link: /contact/
 
 right_links:
