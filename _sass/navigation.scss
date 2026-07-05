@@ -50,7 +50,9 @@ nav {
 
 
 		&.nav-toggle {
-			display: inline;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
 			position: absolute;
 			right: 56px;
 			top: 0;
@@ -58,6 +60,7 @@ nav {
 			border: 0;
 			text-shadow: 0;
 			padding: 0 !important;
+			height: 48px;
 			z-index: 20;
 			pointer-events: auto;
 			@media #{$mid-point} {
@@ -96,11 +99,14 @@ nav {
 
 /* Desktop: position the desktop switch at the far right of the header container */
 header .container .lang-switch.desktop {
- 	display: none;
- 	position: absolute;
- 	right: 10px;
- 	top: 50%;
- 	transform: translateY(-50%);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		right: 10px;
+		top: 50%;
+		transform: translateY(-50%);
+		height: 48px;
 }
 
 @media #{$mid-point} {
