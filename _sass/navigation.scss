@@ -23,6 +23,7 @@ nav {
 	position: relative;
 	top: 0;
 	text-shadow: none;
+	overflow: visible;
 
 	@media #{$mid-point} {
 		padding: 0 20px;
@@ -51,12 +52,14 @@ nav {
 		&.nav-toggle {
 			display: inline;
 			position: absolute;
-			right: 10px;
+			right: 56px;
 			top: 0;
 			font-size: 1.9em;
 			border: 0;
 			text-shadow: 0;
 			padding: 0 !important;
+			z-index: 20;
+			pointer-events: auto;
 			@media #{$mid-point} {
 				display: none;
 			}
@@ -84,15 +87,20 @@ nav {
 	color: rgba(255,255,255,.9);
 	border: 0;
 	cursor: pointer;
+	min-height: 44px;
+	min-width: 44px;
+	border-radius: 999px;
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent;
 }
 
 /* Desktop: position the desktop switch at the far right of the header container */
 header .container .lang-switch.desktop {
-	display: none;
-	position: absolute;
-	right: 20px;
-	top: 50%;
-	transform: translateY(-50%);
+ 	display: none;
+ 	position: absolute;
+ 	right: 10px;
+ 	top: 50%;
+ 	transform: translateY(-50%);
 }
 
 @media #{$mid-point} {
@@ -100,14 +108,26 @@ header .container .lang-switch.desktop {
 		display: block;
 	}
 	/* hide the mobile-in-nav switch on desktop */
-	.lang-switch.mobile { display: none; }
+	.lang-switch.mobile { display: none !important; }
 }
 
-/* Mobile: show the mobile switch inside nav when nav is open */
+/* Mobile: keep the switch visible and easy to tap without overlapping the hamburger button */
+.lang-switch.mobile {
+	display: block;
+	position: absolute;
+	/* place toggle at the far right edge on mobile */
+	right: 10px;
+	top: 4px;
+	z-index: 50;
+	pointer-events: auto;
+}
+
 .nav-open nav .lang-switch.mobile {
 	display: block;
-	position: relative;
-	margin-top: 10px;
+	position: absolute;
+	right: 10px;
+	top: 4px;
+	margin-top: 0;
 }
 
 /* Match lang toggle color to other nav links when header background changes */

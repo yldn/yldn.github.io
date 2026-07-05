@@ -63,19 +63,43 @@
 		});
 	}
 
+	function bindToggleButtons() {
+		var buttons = document.querySelectorAll('.lang-toggle');
+		buttons.forEach(function (btn) {
+			var suppressClick = false;
+			var handleToggle = function (event) {
+				event.preventDefault();
+				event.stopPropagation();
+
+				if (event.type === 'touchend') {
+					if (suppressClick) {
+						suppressClick = false;
+						return;
+					}
+					suppressClick = true;
+					window.setTimeout(function () {
+						suppressClick = false;
+					}, 300);
+				} else if (suppressClick) {
+					suppressClick = false;
+					return;
+				}
+
+				var next = (current() === 'zh') ? 'en' : 'zh';
+				setLang(next);
+			};
+			btn.addEventListener('click', handleToggle);
+			btn.addEventListener('touchend', handleToggle);
+		});
+	}
+
 	document.addEventListener('DOMContentLoaded', function () {
 		var lang = current();
 		updateToggleLabel(lang);
 		applyTranslations(lang);
 		toggleLangVisibility(lang);
 
-		var buttons = document.querySelectorAll('.lang-toggle');
-		buttons.forEach(function (btn) {
-			btn.addEventListener('click', function () {
-				var next = (current() === 'zh') ? 'en' : 'zh';
-				setLang(next);
-			});
-		});
+		bindToggleButtons();
 	});
 
 	window.siteLang = {
