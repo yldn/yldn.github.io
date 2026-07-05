@@ -1,5 +1,4 @@
 <nav>
-	<a class="nav-toggle" id="open-nav" href="#">&#9776;</a>
 	{% for link in site.data.navigation %}
 		{% assign class = "" %}
 		{% if link.highlight %}
@@ -13,7 +12,4 @@
 			<span class="i18n-name">{{ link.name }}</span>
 		</a>
 	{% endfor %}
-	<div class="lang-switch mobile">
-		<button type="button" class="lang-toggle btn" aria-label="切换语言">EN</button>
-	</div>
 </nav>

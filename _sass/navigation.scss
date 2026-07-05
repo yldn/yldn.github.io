@@ -16,6 +16,81 @@
 	}
 }
 
+/* Header flex alignment: ensure logo, nav, hamburger and lang button share the same vertical center */
+header .container {
+	display: flex;
+	align-items: center;
+}
+
+header .container .company-name {
+	display: flex;
+	align-items: center;
+	flex: 0 0 auto;
+}
+
+header .container nav {
+	display: flex;
+	align-items: center;
+	flex: 1 1 auto;
+}
+
+/* The nav-toggle inside header (moved into header) */
+header .container .nav-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 48px;
+	padding: 0 10px;
+	margin-left: 12px;
+}
+
+@media #{$mid-point} {
+	/* hide hamburger on desktop */
+	header .container .nav-toggle { display: none; }
+}
+
+/* Push lang switch to the far right and match height */
+header .container .lang-switch.desktop {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: auto;
+	height: 48px;
+}
+
+/* Hide the old nav-contained toggle (absolute) if present */
+nav a.nav-toggle { display: none; }
+
+/* Mobile: convert nav to dropdown under header when nav is opened */
+@media (max-width: 619px) {
+	/* hide inline nav */
+	header .container nav { display: none; }
+
+	/* when body has nav-open show dropdown nav beneath header */
+	body.nav-open header .container nav,
+	body.nav-open nav {
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 100%;
+		background: #fff;
+		z-index: 9998;
+		box-shadow: 0 6px 18px rgba(0,0,0,.12);
+	}
+
+	body.nav-open nav a {
+		display: block;
+		color: #333;
+		padding: 12px 20px;
+		border-bottom: 1px solid rgba(0,0,0,.04);
+		background: transparent;
+	}
+
+	/* make sure the lang-switch (desktop) uses the header-right position but is visible */
+	header .container .lang-switch.desktop { display: inline-flex; }
+}
+
 nav {
 	text-transform: uppercase;
 	font-size: .8em;
