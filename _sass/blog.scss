@@ -26,7 +26,7 @@
 
 	.author {
 		padding: 30px 0 0 0;
-		border: 1px solid #eee;
+		border: 1px solid var(--color-border);
 		margin: 30px 0;
 		font-size: .8em;
 
@@ -41,7 +41,7 @@
 	h3 {
 		margin: 0;
 		a {
-			color: #000;
+			color: var(--color-heading);
 			text-decoration: none;
 			font-weight: normal;
 			font-size: 1.3em;
@@ -55,7 +55,7 @@
 	}
 
 	.post-details {
-		border-bottom: 1px solid #eee;
+		border-bottom: 1px solid var(--color-border);
 		font-size: .9em;
 		margin: 0;
 		padding: 40px 0 0 0;
@@ -91,6 +91,63 @@
 		.button {
 			margin: 30px 0 0 0;
 		}
+
+		code {
+			font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+			font-size: 0.85em;
+			background: var(--color-inline-code-bg);
+			color: var(--color-inline-code-text);
+			padding: 2px 6px;
+			border-radius: 4px;
+			word-break: break-word;
+		}
+
+		pre {
+			font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+			background: #272822;
+			color: #f8f8f2;
+			border-radius: 8px;
+			padding: 16px;
+			margin: 1.5em 0;
+			overflow-x: auto;
+			line-height: 1.5;
+			font-size: 0.9em;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+
+			code {
+				background: transparent;
+				color: inherit;
+				padding: 0;
+				border-radius: 0;
+				font-size: inherit;
+				word-break: normal;
+			}
+		}
+
+		.highlight code {
+			background: transparent;
+			color: inherit;
+			padding: 0;
+			border-radius: 0;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			margin: 1.5em 0;
+			font-size: 0.9em;
+
+			th, td {
+				border: 1px solid var(--color-border);
+				padding: 10px 14px;
+				text-align: left;
+			}
+
+			th {
+				background: var(--color-bg-secondary);
+				color: var(--color-heading);
+			}
+		}
 	}
 }
 
@@ -101,15 +158,15 @@
 .blog-filter {
 	text-align: center;
 	a {
-		background: #eee;
+		background: var(--color-blog-filter-bg);
     padding: 3px 5px;
     font-size: .8em;
     border-radius: 5px;
-    color: #888;
+    color: var(--color-blog-filter-text);
 		transition: .2s ease-in-out;
 
 		&:hover {
-			color: #555;
+			color: var(--color-blog-filter-hover);
 			text-decoration: none;
 		}
 	}

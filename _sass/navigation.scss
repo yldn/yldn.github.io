@@ -49,13 +49,46 @@ header .container .nav-toggle {
 	header .container .nav-toggle { display: none; }
 }
 
-/* Push lang switch to the far right and match height */
-header .container .lang-switch.desktop {
+/* Push header controls to the far right */
+header .container .header-controls.desktop {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
+	gap: 4px;
 	margin-left: auto;
 	height: 48px;
+}
+
+header .container .header-controls.desktop .btn {
+	padding: 8px 10px;
+	font-size: 0.8em;
+	background: transparent;
+	color: rgba(255,255,255,.9);
+	border: 0;
+	cursor: pointer;
+	min-height: 44px;
+	min-width: 44px;
+	border-radius: 999px;
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent;
+	transition: color 0.2s ease, background 0.2s ease;
+}
+
+header .container .header-controls.desktop {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+header.header-background .header-controls.desktop .btn,
+body.nav-open header .header-controls.desktop .btn {
+	color: var(--color-header-scrolled-text);
+}
+
+/* Legacy lang-switch selectors kept for compatibility */
+header .container .lang-switch.desktop {
+	display: none;
 }
 
 /* Hide the old nav-contained toggle (absolute) if present */
@@ -74,21 +107,20 @@ nav a.nav-toggle { display: none; }
 		left: 0;
 		right: 0;
 		top: 100%;
-		background: #fff;
+		background: var(--color-mobile-nav-bg);
 		z-index: 9998;
-		box-shadow: 0 6px 18px rgba(0,0,0,.12);
+		box-shadow: 0 6px 18px var(--color-mobile-nav-shadow);
 	}
 
 	body.nav-open nav a {
 		display: block;
-		color: #333;
+		color: var(--color-mobile-nav-text);
 		padding: 12px 20px;
-		border-bottom: 1px solid rgba(0,0,0,.04);
+		border-bottom: 1px solid var(--color-mobile-nav-border);
 		background: transparent;
 	}
 
-	/* make sure the lang-switch (desktop) uses the header-right position but is visible */
-	header .container .lang-switch.desktop { display: inline-flex; }
+	header .container .header-controls.desktop { display: inline-flex; }
 }
 
 nav {
@@ -158,7 +190,13 @@ nav {
 	display: none;
 }
 
-.lang-switch .btn {
+/* Legacy mobile lang-switch hidden */
+.lang-switch.mobile {
+	display: none !important;
+}
+
+.lang-switch .btn,
+.header-controls .btn {
 	padding: 8px 10px;
 	font-size: 0.8em;
 	background: transparent;
@@ -172,23 +210,8 @@ nav {
 	-webkit-tap-highlight-color: transparent;
 }
 
-/* Desktop: position the desktop switch at the far right of the header container */
-header .container .lang-switch.desktop {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		position: absolute;
-		right: 10px;
-		top: 50%;
-		transform: translateY(-50%);
-		height: 48px;
-}
-
+/* Desktop header controls positioning (legacy lang-switch block removed) */
 @media #{$mid-point} {
-	header .container .lang-switch.desktop {
-		display: block;
-	}
-	/* hide the mobile-in-nav switch on desktop */
 	.lang-switch.mobile { display: none !important; }
 }
 
@@ -211,21 +234,24 @@ header .container .lang-switch.desktop {
 	margin-top: 0;
 }
 
-/* Match lang toggle color to other nav links when header background changes */
+/* Match toggle color when header background changes */
+header .header-controls .btn,
 header .container .lang-switch.desktop .btn,
 .lang-switch.mobile .btn {
 	transition: color 0.2s ease, background 0.2s ease;
 }
 
+header.header-background .header-controls .btn,
 header.header-background .container .lang-switch.desktop .btn,
 header.header-background .lang-switch.mobile .btn,
-/* also when body has nav-open (mobile menu open) header gets background */
+body.nav-open header .header-controls .btn,
 body.nav-open header .container .lang-switch.desktop .btn,
 body.nav-open header .lang-switch.mobile .btn {
-	color: #333;
+	color: var(--color-header-scrolled-text);
 }
 
-/* Default (dark header) color */
+/* Default (transparent header) color */
+header .header-controls .btn,
 header .container .lang-switch.desktop .btn,
 header .lang-switch.mobile .btn {
 	color: rgba(255,255,255,.9);

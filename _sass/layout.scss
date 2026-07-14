@@ -26,9 +26,11 @@ body.lang-en-active .lang-zh { display: none; }
 }
 
 section {
-	background: #fff;
+	background: var(--color-bg);
+	color: var(--color-text);
 	margin: 0;
 	padding: 0;
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .pad {
@@ -53,14 +55,14 @@ header {
 	}
 
 	&.header-background {
-		background-color: rgba(255,255,255,.95);
-		color: #333;
-		box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+		background-color: var(--color-header-scrolled-bg);
+		color: var(--color-header-scrolled-text);
+		box-shadow: 0px 0px 10px var(--color-header-scrolled-shadow);
 		transition: all 0.3s ease;
 		text-shadow: none;
 
 		a {
-			color: #333;
+			color: var(--color-header-scrolled-text);
 			transition: color 0.3s ease;
 			@media #{$mid-point} {
 				&:hover {
@@ -112,7 +114,8 @@ header {
 }
 
 .content {
-	background: #fff;
+	background: var(--color-bg);
+	transition: background-color 0.3s ease;
 }
 
 .info img {
@@ -158,7 +161,7 @@ blockquote {
 }
 
 blockquote:before {
-	color: #ccc;
+	color: var(--color-blockquote-mark);
 	content: open-quote;
 	font-size: 4em;
 	line-height: 0.1em;

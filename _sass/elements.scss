@@ -1,5 +1,5 @@
 html {
-	background: #333;
+	background: var(--color-html-bg);
 	margin: 0;
 	padding: 0;
 	height: 100%;
@@ -16,10 +16,13 @@ body {
 	margin: 0;
 	padding: 0;
 	position: relative;
+	color: var(--color-text);
+	background: var(--color-bg);
+	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
-	color: #00a4ca;
+	color: var(--color-link);
 	text-decoration: none;
 }
 
@@ -39,6 +42,7 @@ h1 {
 	font-weight: 300;
 	font-size: 3.8em;
 	margin: 0;
+	color: var(--color-heading);
 }
 
 h2 {
@@ -46,14 +50,16 @@ h2 {
 	font-size: 3em;
 	margin: 0 0 30px 0;
 	line-height: 1.2em;
+	color: var(--color-heading);
 }
 
 h3 {
 	margin: 20px 0 10px 0;
+	color: var(--color-heading);
 }
 
 h2 a {
-	color: #000;
+	color: var(--color-heading);
 
 	&:hover {
 		text-decoration: none;

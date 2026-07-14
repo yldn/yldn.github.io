@@ -4,6 +4,14 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="color-scheme" content="light dark">
+		<script>
+			(function () {
+				var stored = localStorage.getItem('site_theme');
+				var dark = stored === 'dark' || (!stored && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+				if (dark) document.documentElement.classList.add('dark-mode');
+			})();
+		</script>
 
 		{% seo %}
 		{% feed_meta %}
@@ -36,7 +44,8 @@
 				</div>
 				<a class="nav-toggle" id="open-nav" href="#">&#9776;</a>
 				{% include navigation.html %}
-				<div class="lang-switch desktop">
+				<div class="header-controls desktop">
+					<button class="theme-toggle btn" aria-label="Switch to dark mode" title="Dark mode">&#x263E;</button>
 					<button class="lang-toggle btn" aria-label="切换语言">EN</button>
 				</div>
 				<p class="editor-link"><a style="display:inline;" href="cloudcannon:collections/_data/navigation.yml" class="btn" data-i18n-en="Edit navigation" data-i18n-zh="编辑导航"><strong>&#9998;</strong> <span class="i18n-name">Edit navigation</span></a></p>
@@ -73,6 +82,7 @@
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<script src="{{ site.baseurl }}/assets/js/main.js"></script>
+		<script src="{{ site.baseurl }}/assets/js/theme.js"></script>
 		<script src="{{ site.baseurl }}/assets/js/lang.js"></script>
 	</body>
 </html>

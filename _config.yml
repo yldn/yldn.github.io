@@ -3,6 +3,13 @@ domain: yldn.github.io
 url: https://yldn.github.io
 baseurl: ''
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
 email: Liudongnan.yang@foxmail.com
 google_analytics_key: null
 google_maps_javascript_api_key: AIzaSyBYY5sb2_cmip-_t122_IH0mxh7l3IERMg
@@ -17,7 +24,7 @@ social:
   name: Timiu
   links:
     - 'https://github.com/yldn'
-timezone: Etc/UTC
+timezone: Asia/Shanghai
 permalink: pretty
 plugins:
   - jekyll-sitemap

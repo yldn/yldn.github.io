@@ -1,0 +1,95 @@
+:root {
+	color-scheme: light;
+
+	--color-html-bg: #333;
+	--color-bg: #fff;
+	--color-bg-secondary: #f4f4f5;
+	--color-text: #333;
+	--color-text-muted: #666;
+	--color-heading: #000;
+	--color-border: #eee;
+	--color-link: #00a4ca;
+	--color-header-scrolled-bg: rgba(255, 255, 255, 0.95);
+	--color-header-scrolled-text: #333;
+	--color-header-scrolled-shadow: rgba(0, 0, 0, 0.2);
+	--color-inline-code-bg: #f4f4f5;
+	--color-inline-code-text: #c7254e;
+	--color-input-bg: #fff;
+	--color-input-border: #ddd;
+	--color-input-text: #333;
+	--color-blog-filter-bg: #eee;
+	--color-blog-filter-text: #888;
+	--color-blog-filter-hover: #555;
+	--color-blockquote-mark: #ccc;
+	--color-form-note: #555;
+	--color-mobile-nav-bg: #fff;
+	--color-mobile-nav-text: #333;
+	--color-mobile-nav-border: rgba(0, 0, 0, 0.04);
+	--color-mobile-nav-shadow: rgba(0, 0, 0, 0.12);
+}
+
+html.dark-mode {
+	color-scheme: dark;
+
+	--color-html-bg: #0f0f1a;
+	--color-bg: #1a1a2e;
+	--color-bg-secondary: #252538;
+	--color-text: #e4e4e7;
+	--color-text-muted: #a1a1aa;
+	--color-heading: #f4f4f5;
+	--color-border: #3f3f56;
+	--color-link: #5ec8e8;
+	--color-header-scrolled-bg: rgba(26, 26, 46, 0.95);
+	--color-header-scrolled-text: #e4e4e7;
+	--color-header-scrolled-shadow: rgba(0, 0, 0, 0.4);
+	--color-inline-code-bg: #2d2d3f;
+	--color-inline-code-text: #f78c6c;
+	--color-input-bg: #252538;
+	--color-input-border: #3f3f56;
+	--color-input-text: #e4e4e7;
+	--color-blog-filter-bg: #2d2d3f;
+	--color-blog-filter-text: #a1a1aa;
+	--color-blog-filter-hover: #e4e4e7;
+	--color-blockquote-mark: #52525b;
+	--color-form-note: #a1a1aa;
+	--color-mobile-nav-bg: #1a1a2e;
+	--color-mobile-nav-text: #e4e4e7;
+	--color-mobile-nav-border: rgba(255, 255, 255, 0.06);
+	--color-mobile-nav-shadow: rgba(0, 0, 0, 0.35);
+}
+
+html.dark-mode {
+	header.header-background {
+		background-color: var(--color-header-scrolled-bg);
+		color: var(--color-header-scrolled-text);
+		box-shadow: 0 0 10px var(--color-header-scrolled-shadow);
+
+		a {
+			color: var(--color-header-scrolled-text);
+		}
+
+		.dark-logo {
+			display: none;
+		}
+
+		.light-logo {
+			display: inline;
+		}
+	}
+
+	body.nav-open header .container nav,
+	body.nav-open nav {
+		background: var(--color-mobile-nav-bg);
+		box-shadow: 0 6px 18px var(--color-mobile-nav-shadow);
+	}
+
+	body.nav-open nav a {
+		color: var(--color-mobile-nav-text);
+		border-bottom-color: var(--color-mobile-nav-border);
+	}
+
+	header.header-background .header-controls .btn,
+	body.nav-open header .header-controls .btn {
+		color: var(--color-header-scrolled-text);
+	}
+}

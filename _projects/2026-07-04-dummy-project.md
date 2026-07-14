@@ -12,7 +12,6 @@ image: https://source.unsplash.com/collection/190727/1200x800?a=.png
 author_staff_member: timiu
 excerpt_zh: 这是一个演示项目，用于展示项目页的中英文切换效果。
 ---
-
 This is a dummy project created to show how a project entry looks on the projects page.
 
 The project page now supports both English and Chinese content when you switch languages.
@@ -32,8 +31,13 @@ x
 x
 x
 
-
-
+```python
+def hello():
+    print("Hello, World!")
+```
+```javascript
+const greet = (name) => `Hello, ${name}`;
+```
 
 
 x
